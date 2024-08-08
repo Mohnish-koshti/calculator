@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My calci</title>
+</head>
+<style>
+    *{
+        /* background-color: #0a0b0cf0; */
+    }
+    .Calci{
+        width: 200px;
+        margin: 50px auto;
+        padding: 20px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        background-color:#0a0b0cf0;
+    }
+
+    #inputarea{
+        width: 94%;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 20px;
+        border: none;
+        margin-bottom: 25px;
+        color: white;
+        background-color: #0a0b0c00;
+    }
+
+    .buttn{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 5px;
+        background-color:#0a0b0c00;
+    }
+
+    button{
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        background-color: #0a0b0c00;
+        cursor: pointer;
+        color: white;
+    }
+
+    button:hover{
+        background-color: #63e9e58d;
+    }
+</style>
+<body>
+    <div class="Calci">
+        <input type="text" id="inputarea" readonly>
+        <div class="buttn">
+            <button style="color: #63e9e4;" onclick="Cleanshow()">C</button>
+            <button style="color: #63e9e4;" onclick="attachbtn('%')">%</button>
+            <button style="color: #63e9e4;" onclick="attachbtn('X')">X</button>
+            <button style="color: #63e9e4;" onclick="attachbtn('/')">/</button>
+            <button onclick="attachbtn('7')">7</button>
+            <button onclick="attachbtn('8')">8</button>
+            <button onclick="attachbtn('9')">9</button>
+            <button style="color: #63e9e4;" onclick="attachbtn('*')">*</button>
+            <button onclick="attachbtn('4')">4</button>
+            <button onclick="attachbtn('5')">5</button>
+            <button onclick="attachbtn('6')">6</button>
+            <button style="color: #63e9e4;" onclick="attachbtn('-')">-</button>
+            <button onclick="attachbtn('1')">1</button>
+            <button onclick="attachbtn('2')">2</button>
+            <button onclick="attachbtn('3')">3</button>
+            <button style="color: #63e9e4;" onclick="attachbtn('+')">+</button>
+            <button onclick="attachbtn('00')">00</button>
+            <button onclick="attachbtn('0')">0</button>
+            <button onclick="attachbtn('.')">.</button>
+            <button style="color: #63e9e4;" onclick="calcu()">=</button>
+            
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById('inputarea');
+        function attachbtn(values)
+        {
+            display.value += values;
+        }
+        function Cleanshow()
+        {
+            display.value = '';
+        }
+        function calcu()
+        {
+            try{
+                display.value = eval(display.value);
+                console.log("Current value is : "+display.value);
+            }
+            catch(error)
+            {
+                display.value ='Error';
+            }
+        }
+    </script>
+</body>
+
+</html>
